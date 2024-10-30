@@ -13,52 +13,53 @@ class Calculator {
 
 let calculator = Calculator()
 
-calculator.addOperation.add(5, to: 6)
-calculator.subtractOperation.subtract(9, from: 10)
-calculator.multiplyOperation.mutilply(11, by: 12)
-calculator.divideOperation.divide(13, by: 14)
-calculator.modulusOperation.modulo(13, by: 14)
+calculator.addOperation.operate(5, with: 6)
+calculator.subtractOperation.operate(9, with: 10)
+calculator.multiplyOperation.operate(11, with: 12)
+calculator.divideOperation.operate(13, with: 14)
+calculator.modulusOperation.operate(13, with: 14)
+
 
 protocol AbstractOperation {
-    func operate(_ firstInput: Int, with secondInput: Int)
+    func operate(_ firstInput: Int, with secondInput: Int) -> Int
 }
 
 
-class AddOperation {
+class AddOperation: AbstractOperation {
     
-    func add(_ firstInput: Int, to secondInput: Int) -> Int {
+    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
         return firstInput + secondInput
     }
     
 }
 
-class SubstractOperation {
+class SubstractOperation: AbstractOperation {
     
-    func subtract(_ firstInput: Int, from secondInput: Int) -> Int {
+    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
         return firstInput - secondInput
     }
     
 }
 
-class MultiplyOperation {
+class MultiplyOperation: AbstractOperation {
     
-    func mutilply(_ firstInput: Int, by secondInput: Int) -> Int {
+    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
         return firstInput * secondInput
     }
 
 }
 
-class DivideOperation{
+class DivideOperation: AbstractOperation {
     
-    func divide(_ firstInput: Int, by secondInput: Int) -> Int {
+    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
         return firstInput / secondInput
     }
     
 }
 
-class ModulusOperation {
+class ModulusOperation: AbstractOperation {
     
-    func modulo(_ firstInput: Int, by secondInput: Int) -> Int {
+    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
         return firstInput % secondInput
     }
     
