@@ -19,6 +19,10 @@ calculator.multiplyOperation.mutilply(11, by: 12)
 calculator.divideOperation.divide(13, by: 14)
 calculator.modulusOperation.modulo(13, by: 14)
 
+protocol AbstractOperation {
+    func operate(_ firstInput: Int, with secondInput: Int)
+}
+
 
 class AddOperation {
     
