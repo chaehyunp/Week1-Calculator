@@ -9,6 +9,6 @@ public protocol AbstractOperation {
     
     var symbol: String { get }
     
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int
+    func operate(_ firstInput: Double, with secondInput: Double) -> Double
     
 }

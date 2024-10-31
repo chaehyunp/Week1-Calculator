@@ -11,7 +11,7 @@ public class AddOperation: AbstractOperation {
     
     public var symbol: String = "+"
     
-    public func operate(_ firstInput: Int, with secondInput: Int) -> Int {
+    public func operate(_ firstInput: Double, with secondInput: Double) -> Double {
         return firstInput + secondInput
     }
     

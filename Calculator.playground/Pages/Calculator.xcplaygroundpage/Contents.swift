@@ -2,30 +2,32 @@ import UIKit
 
 
 class Calculator {
-  private var operation: AbstractOperation?
+    private var operation: AbstractOperation?
     
-  private var firstInput: Int?
-  private var secondInput: Int?
-  
-  func setOperation(to operation: AbstractOperation) {
+    private var firstInput: Double?
+    private var secondInput: Double?
+    
+    func setOperation(to operation: AbstractOperation) {
     self.operation = operation
   }
   
-  func setFirst(to number: Int) {
-      if firstInput == nil {
-          firstInput = number
+    func setFirst(to input: Double) {
+        if firstInput == nil && secondInput == nil {
+          firstInput = input
       }
-      
   }
   
-  func setSecond(to number: Int) {
-      if secondInput == nil {
-          secondInput = number
+  func setSecond(to input: Double) {
+      if secondInput == nil && firstInput != nil{
+          secondInput = input
       }
   }
   
   func result() {
-      guard let operation, let firstInput, let secondInput else { return }
+      guard let operation, let firstInput, let secondInput else {
+          print("입력이 잘못되었습니다.")
+          return
+      }
       let result = operation.operate(firstInput, with: secondInput)
       
       print("\(firstInput) \(operation.symbol) \(secondInput) = \(result)")
