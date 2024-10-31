@@ -7,8 +7,6 @@
 
 public class MultiplyOperation: AbstractOperation {
     
-    public init () {}
-    
     public var symbol: String = "*"
     
     public func operate(_ firstInput: Double, with secondInput: Double) -> Double {

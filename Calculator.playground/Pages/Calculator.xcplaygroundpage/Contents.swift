@@ -23,7 +23,7 @@ class Calculator {
       }
   }
   
-  func result() {
+  func getResult() {
       guard let operation, let firstInput, let secondInput else {
           print("입력이 잘못되었습니다.")
           return
@@ -41,15 +41,16 @@ class Calculator {
 let calculator = Calculator()
 
 calculator.setFirst(to: 2) // 첫 번째 숫자 입력
+//let operation = AddOperation()
+
 calculator.setOperation(to: AddOperation()) // 연산자 입력
 calculator.setSecond(to: 10) // 두 번째 숫자 입력
-calculator.result() // = 등호 입력
+calculator.getResult() // = 등호 입력
 
 calculator.setFirst(to: 2) // 첫 번째 숫자 입력
 calculator.setOperation(to: SubstractOperation()) // 연산자 입력
 calculator.setSecond(to: 10) // 두 번째 숫자 입력
-calculator.result() // = 등호 입력
-
+calculator.getResult() // = 등호 입력
 
 
 
