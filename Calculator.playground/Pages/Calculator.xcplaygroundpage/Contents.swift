@@ -1,66 +1,63 @@
 import UIKit
 
+
 class Calculator {
+  private var operation: AbstractOperation?
     
-    let addOperation = AddOperation()
-    let subtractOperation = SubstractOperation()
-    let multiplyOperation = MultiplyOperation()
-    let divideOperation = DivideOperation()
-    let modulusOperation = ModulusOperation()
-
+  private var firstInput: Int?
+  private var secondInput: Int?
+  
+  func setOperation(to operation: AbstractOperation) {
+    self.operation = operation
+  }
+  
+  func setFirst(to number: Int) {
+      if firstInput == nil {
+          firstInput = number
+      }
+      
+  }
+  
+  func setSecond(to number: Int) {
+      if secondInput == nil {
+          secondInput = number
+      }
+  }
+  
+  func result() {
+      guard let operation, let firstInput, let secondInput else { return }
+      let result = operation.operate(firstInput, with: secondInput)
+      
+      print("\(firstInput) \(operation.symbol) \(secondInput) = \(result)")
+      
+      self.firstInput = nil
+      self.secondInput = nil
+      self.operation = nil
+  }
 }
-
 
 let calculator = Calculator()
 
-calculator.addOperation.operate(5, with: 6)
-calculator.subtractOperation.operate(9, with: 10)
-calculator.multiplyOperation.operate(11, with: 12)
-calculator.divideOperation.operate(13, with: 14)
-calculator.modulusOperation.operate(13, with: 14)
+calculator.setFirst(to: 2) // 첫 번째 숫자 입력
+calculator.setOperation(to: AddOperation()) // 연산자 입력
+calculator.setSecond(to: 10) // 두 번째 숫자 입력
+calculator.result() // = 등호 입력
+
+calculator.setFirst(to: 2) // 첫 번째 숫자 입력
+calculator.setOperation(to: SubstractOperation()) // 연산자 입력
+calculator.setSecond(to: 10) // 두 번째 숫자 입력
+calculator.result() // = 등호 입력
 
 
-protocol AbstractOperation {
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int
-}
 
 
-class AddOperation: AbstractOperation {
-    
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
-        return firstInput + secondInput
-    }
-    
-}
 
-class SubstractOperation: AbstractOperation {
-    
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
-        return firstInput - secondInput
-    }
-    
-}
 
-class MultiplyOperation: AbstractOperation {
-    
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
-        return firstInput * secondInput
-    }
 
-}
 
-class DivideOperation: AbstractOperation {
-    
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
-        return firstInput / secondInput
-    }
-    
-}
 
-class ModulusOperation: AbstractOperation {
-    
-    func operate(_ firstInput: Int, with secondInput: Int) -> Int {
-        return firstInput % secondInput
-    }
-    
-}
+
+
+
+
+
