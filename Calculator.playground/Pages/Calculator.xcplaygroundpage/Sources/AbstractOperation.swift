@@ -5,6 +5,7 @@
 //  Created by CHYUN on 10/31/24.
 //
 
+
 public protocol AbstractOperation {
     
     var symbol: String { get }
