@@ -12,6 +12,7 @@ public class DivideOperation: AbstractOperation {
     public var symbol: String = "/"
 
     public func operate(_ firstInput: Double, with secondInput: Double) -> Double {
+        
         return firstInput / secondInput
     }
     

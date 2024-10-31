@@ -1,15 +1,15 @@
 import UIKit
 
-
 class Calculator {
+
     private var operation: AbstractOperation?
     
     private var firstInput: Double?
     private var secondInput: Double?
     
     func setOperation(to operation: AbstractOperation) {
-    self.operation = operation
-  }
+        self.operation = operation
+    }
   
     func setFirst(to input: Double) {
         if firstInput == nil && secondInput == nil {
@@ -41,8 +41,6 @@ class Calculator {
 let calculator = Calculator()
 
 calculator.setFirst(to: 2) // 첫 번째 숫자 입력
-//let operation = AddOperation()
-
 calculator.setOperation(to: AddOperation()) // 연산자 입력
 calculator.setSecond(to: 10) // 두 번째 숫자 입력
 calculator.getResult() // = 등호 입력
